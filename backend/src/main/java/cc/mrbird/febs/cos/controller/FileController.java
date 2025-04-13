@@ -22,7 +22,7 @@ public class FileController {
     @RequestMapping("/fileUpload")
     public String upload(@RequestParam("avatar") MultipartFile file){
         // 1定义要上传文件 的存放路径
-         String localPath="G:/Project/20250222家政服务论坛/db";
+         String localPath="G:/Project/20250330社区老年人服务系统/db";
         // 2获得文件名字
         String fileName=file.getOriginalFilename();
         // 2上传失败提示

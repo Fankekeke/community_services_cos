@@ -95,7 +95,7 @@ export default {
     }
   },
   mounted () {
-    this.querySportByUserId()
+    // this.querySportByUserId()
   },
   methods: {
     querySportByUserId () {

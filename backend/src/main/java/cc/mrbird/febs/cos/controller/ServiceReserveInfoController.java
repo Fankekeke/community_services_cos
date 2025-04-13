@@ -3,16 +3,20 @@ package cc.mrbird.febs.cos.controller;
 
 import cc.mrbird.febs.common.utils.R;
 import cc.mrbird.febs.cos.entity.ServiceReserveInfo;
+import cc.mrbird.febs.cos.entity.StaffInfo;
 import cc.mrbird.febs.cos.entity.UserInfo;
 import cc.mrbird.febs.cos.service.IServiceReserveInfoService;
+import cc.mrbird.febs.cos.service.IStaffInfoService;
 import cc.mrbird.febs.cos.service.IUserInfoService;
 import cn.hutool.core.date.DateUtil;
+import cn.hutool.core.util.NumberUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +31,8 @@ public class ServiceReserveInfoController {
     private final IServiceReserveInfoService serviceReserveInfoService;
 
     private final IUserInfoService userInfoService;
+
+    private final IStaffInfoService staffInfoService;
 
     /**
      * 分页获取服务预约信息
@@ -94,6 +100,13 @@ public class ServiceReserveInfoController {
      */
     @GetMapping("/wordOrderFinish")
     public R wordOrderFinish(@RequestParam("orderId") Integer orderId) {
+        ServiceReserveInfo serviceReserveInfo = serviceReserveInfoService.getById(orderId);
+        // 更新员工积分
+        StaffInfo staffInfo = staffInfoService.getOne(Wrappers.<StaffInfo>lambdaQuery().eq(StaffInfo::getUserId, serviceReserveInfo.getWorkUserId()));
+        if (staffInfo.getIntegral() == null) {
+            staffInfo.setIntegral(BigDecimal.ZERO);
+        }
+        staffInfo.setIntegral(NumberUtil.add(staffInfo.getIntegral(), serviceReserveInfo.getTotalPrice()));
         return R.ok(serviceReserveInfoService.update(Wrappers.<ServiceReserveInfo>lambdaUpdate().set(ServiceReserveInfo::getStatus, "3").eq(ServiceReserveInfo::getId, orderId)));
     }
 

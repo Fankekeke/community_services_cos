@@ -178,23 +178,25 @@ export default {
         }
       }, {
         title: '身体异常',
-        dataIndex: 'sportAmount',
+        dataIndex: 'content',
         customRender: (text, row, index) => {
           if (text !== null) {
-            return text + '卡'
+            return text
           } else {
             return '- -'
           }
         }
       }, {
-        title: '健康时间',
-        dataIndex: 'sportTime',
-        customRender: (text, row, index) => {
-          if (text !== null) {
-            return text + '分钟'
-          } else {
-            return '- -'
-          }
+        title: '健康图片',
+        dataIndex: 'images',
+        customRender: (text, record, index) => {
+          if (!record.images) return <a-avatar shape="square" icon="user" />
+          return <a-popover>
+            <template slot="content">
+              <a-avatar shape="square" size={132} icon="user" src={ 'http://127.0.0.1:9527/imagesWeb/' + record.images.split(',')[0] } />
+            </template>
+            <a-avatar shape="square" icon="user" src={ 'http://127.0.0.1:9527/imagesWeb/' + record.images.split(',')[0] } />
+          </a-popover>
         }
       }, {
         title: '体重',
@@ -327,7 +329,6 @@ export default {
         params.size = this.pagination.defaultPageSize
         params.current = this.pagination.defaultCurrent
       }
-      params.userId = this.currentUser.userId
       this.$get('/cos/weight-record-info/page', {
         ...params
       }).then((r) => {

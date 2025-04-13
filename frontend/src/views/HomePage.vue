@@ -19,7 +19,7 @@
         </a-carousel>
       </a-col>
       <a-col :span="6">
-        <a-card hoverable :loading="loading" :bordered="false" title="家政招商" style="height: 550px;overflow: auto">
+        <a-card hoverable :loading="loading" :bordered="false" title="新闻中心" style="height: 550px;overflow: auto">
           <div style="padding: 0 22px">
             <a-list item-layout="vertical" :pagination="false" :data-source="bulletinList">
               <a-list-item slot="renderItem" key="item.title" slot-scope="item, index">

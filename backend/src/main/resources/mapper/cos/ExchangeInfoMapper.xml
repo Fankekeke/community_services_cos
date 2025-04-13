@@ -14,6 +14,8 @@
         ui.name as userName,
         ui.images as userImages,
         ui.phone,
+        ui.mail,
+        ui.address,
         mi.name as materialName,
         mi.images as materialImages
         from

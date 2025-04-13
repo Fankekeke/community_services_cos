@@ -11,6 +11,7 @@
         wri.sport_name,
         wri.sport_time,
         wri.weight,
+        wri.images,
         wri.content,
         wri.create_date,
         ui.name as userName,

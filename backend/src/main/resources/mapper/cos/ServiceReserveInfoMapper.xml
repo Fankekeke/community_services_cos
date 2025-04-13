@@ -146,7 +146,7 @@
         service_reserve_info sri
         left join user_info ui1 on
         (ui1.id = sri.user_id)
-        left join user_info ui2 on
+        left join staff_info ui2 on
         (ui2.id = sri.work_user_id)
         where
         1 = 1
@@ -190,7 +190,7 @@
         service_reserve_info sri
         left join user_info ui1 on
         (ui1.id = sri.user_id)
-        left join user_info ui2 on
+        left join staff_info ui2 on
         (ui2.id = sri.work_user_id)
         where
         1 = 1

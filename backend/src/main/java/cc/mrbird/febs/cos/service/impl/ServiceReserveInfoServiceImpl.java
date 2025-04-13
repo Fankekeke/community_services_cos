@@ -3,9 +3,11 @@ package cc.mrbird.febs.cos.service.impl;
 import cc.mrbird.febs.cos.entity.MessageInfo;
 import cc.mrbird.febs.cos.entity.ServiceReserveInfo;
 import cc.mrbird.febs.cos.dao.ServiceReserveInfoMapper;
+import cc.mrbird.febs.cos.entity.StaffInfo;
 import cc.mrbird.febs.cos.entity.UserInfo;
 import cc.mrbird.febs.cos.service.IMessageInfoService;
 import cc.mrbird.febs.cos.service.IServiceReserveInfoService;
+import cc.mrbird.febs.cos.service.IStaffInfoService;
 import cc.mrbird.febs.cos.service.IUserInfoService;
 import cn.hutool.core.date.DateUtil;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -30,6 +32,8 @@ public class ServiceReserveInfoServiceImpl extends ServiceImpl<ServiceReserveInf
     private final IUserInfoService userInfoService;
 
     private final IMessageInfoService messageInfoService;
+
+    private final IStaffInfoService staffInfoService;
 
     /**
      * 分页获取服务预约信息
@@ -100,8 +104,8 @@ public class ServiceReserveInfoServiceImpl extends ServiceImpl<ServiceReserveInf
         // 获取订单信息
         ServiceReserveInfo serviceReserveInfo = baseMapper.selectById(orderId);
         // 获取工作人员
-        UserInfo userInfo = userInfoService.getOne(Wrappers.<UserInfo>lambdaQuery().eq(UserInfo::getUserId, workId));
-        serviceReserveInfo.setWorkUserId(userInfo.getId());
+        StaffInfo staffInfo = staffInfoService.getOne(Wrappers.<StaffInfo>lambdaQuery().eq(StaffInfo::getUserId, workId));
+        serviceReserveInfo.setWorkUserId(staffInfo.getId());
         // 获取用户信息
         UserInfo user = userInfoService.getOne(Wrappers.<UserInfo>lambdaQuery().eq(UserInfo::getId, serviceReserveInfo.getUserId()));
         // 设置订单状态

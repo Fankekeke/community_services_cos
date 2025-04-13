@@ -5,7 +5,7 @@
         <div class="header">
           <a-row style="width: 368px;margin: 0 auto">
             <a-col :span="24">
-              <div style="text-align: left;font-size: 23px;margin-bottom: 10px;font-family: SimHei;margin-top: 30px;color: #7a8fab;text-align: center">社区老年人服务系统</div>
+              <div style="text-align: left;font-size: 23px;margin-bottom: 10px;font-family: SimHei;margin-top: 30px;color: #7a8fab;text-align: center">老年大学社区服务融合平台</div>
             </a-col>
           </a-row>
         </div>

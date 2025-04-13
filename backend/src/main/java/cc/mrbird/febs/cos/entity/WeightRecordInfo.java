@@ -66,6 +66,11 @@ public class WeightRecordInfo implements Serializable {
      */
     private String createDate;
 
+    /**
+     * 创建时间
+     */
+    private String images;
+
     @TableField(exist = false)
     private String userName;
 

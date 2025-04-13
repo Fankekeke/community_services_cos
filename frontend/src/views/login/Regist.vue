@@ -5,6 +5,10 @@
       <a-form ref="formRegister" :autoFormCreate="(form)=>{this.form = form}" id="formRegister">
         <a-divider orientation="left"><span style="font-size: 12px">账户注册</span></a-divider>
         <a-form-item
+          :fieldDecoratorOptions="{rules: [{ required: true, message: '请输入用户名' }], validateTrigger: ['change', 'blur']}">
+          <a-input type="text" v-model="name" placeholder="用户名"></a-input>
+        </a-form-item>
+        <a-form-item
           fieldDecoratorId="email"
           :fieldDecoratorOptions="{rules: [{ required: true, message: '请输入注册账号' },  { validator: this.handleUsernameCheck }], validateTrigger: ['change', 'blur']}">
           <a-input type="text" v-model="username" placeholder="账号"></a-input>
@@ -76,6 +80,7 @@ export default {
   data () {
     return {
       form: null,
+      name: '',
       username: '',
       password: '',
       state: {
@@ -184,7 +189,8 @@ export default {
         if (!err) {
           this.$post('regist', {
             username: this.username,
-            password: this.password
+            password: this.password,
+            name: this.name
           }).then(() => {
             this.$message.success('注册成功')
             this.returnLogin()

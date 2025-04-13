@@ -2,7 +2,9 @@ package cc.mrbird.febs.cos.controller;
 
 
 import cc.mrbird.febs.common.utils.R;
+import cc.mrbird.febs.cos.entity.ServiceReserveInfo;
 import cc.mrbird.febs.cos.entity.StaffInfo;
+import cc.mrbird.febs.cos.service.IServiceReserveInfoService;
 import cc.mrbird.febs.cos.service.IStaffInfoService;
 import cc.mrbird.febs.system.service.UserService;
 import cn.hutool.core.date.DateUtil;
@@ -12,7 +14,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -24,6 +28,8 @@ import java.util.List;
 public class StaffInfoController {
 
     private final IStaffInfoService staffInfoService;
+
+    private final IServiceReserveInfoService serviceReserveInfoService;
 
     private final UserService userService;
 
@@ -101,7 +107,18 @@ public class StaffInfoController {
      */
     @GetMapping("/detail/{id}")
     public R detail(@PathVariable("id") Integer id) {
-        return R.ok(staffInfoService.getById(id));
+        // 返回数据
+        LinkedHashMap<String, Object> result = new LinkedHashMap<String, Object>() {
+            {
+                put("user", null);
+                put("order", Collections.emptyList());
+            }
+        };
+        StaffInfo userInfo = staffInfoService.getOne(Wrappers.<StaffInfo>lambdaQuery().eq(StaffInfo::getUserId, id));
+        List<ServiceReserveInfo> orderList = serviceReserveInfoService.list(Wrappers.<ServiceReserveInfo>lambdaQuery().eq(ServiceReserveInfo::getWorkUserId, userInfo.getId()));
+        result.put("user", userInfo);
+        result.put("order", orderList);
+        return R.ok(result);
     }
 
     /**
