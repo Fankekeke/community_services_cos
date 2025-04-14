@@ -102,11 +102,12 @@ public class ServiceReserveInfoController {
     public R wordOrderFinish(@RequestParam("orderId") Integer orderId) {
         ServiceReserveInfo serviceReserveInfo = serviceReserveInfoService.getById(orderId);
         // 更新员工积分
-        StaffInfo staffInfo = staffInfoService.getOne(Wrappers.<StaffInfo>lambdaQuery().eq(StaffInfo::getUserId, serviceReserveInfo.getWorkUserId()));
+        StaffInfo staffInfo = staffInfoService.getOne(Wrappers.<StaffInfo>lambdaQuery().eq(StaffInfo::getId, serviceReserveInfo.getWorkUserId()));
         if (staffInfo.getIntegral() == null) {
             staffInfo.setIntegral(BigDecimal.ZERO);
         }
         staffInfo.setIntegral(NumberUtil.add(staffInfo.getIntegral(), serviceReserveInfo.getTotalPrice()));
+        staffInfoService.updateById(staffInfo);
         return R.ok(serviceReserveInfoService.update(Wrappers.<ServiceReserveInfo>lambdaUpdate().set(ServiceReserveInfo::getStatus, "3").eq(ServiceReserveInfo::getId, orderId)));
     }
 
