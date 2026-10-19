@@ -1,45 +1,17 @@
-### 基于SpringBoot + Vue的老年人社区养老服务系统.
+![](https://img.shields.io/badge/License-MIT-blue.svg)
 
-智慧养老平台、居家养老系统、智慧养老社区、助老服务管理、健康监测
+![](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg)
 
-###### 管理员：
-用户管理、公告管理、社区交流、敏感词管理、模块管理、消息回复内容管理、社区新闻、留言板信息、首页图片管理、帮助服务信息、积分物品上架、志愿者积分兑换、视频课程。
+![](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
 
-###### 志愿者：
-账户注册、账户登录、个人信息、密码修改、积分物品兑换、我的兑换记录、我的接单、服务看板。
+# 基于 SpringBoot + Vue  的老年人社区养老服务系统
 
-###### 用户：
-小程序账户注册登录、个人信息修改、社区交流、我的贴子、发布贴子、视频课程观看、发布服务内容、消息内容回复。
+老年用户小程序 · 志愿者服务端 · 社区管理后台 | 互助养老 · 时间银行 · 社区交流 · 视频课程 · 积分兑换
 
-##### 用户权限与基础管理
-###### 用户管理： 统一管控居民与志愿者账号，实现身份认证及权限的精准分配。
-
-###### 个人信息/密码： 提供便捷的信息修改与账户维护，保障社区用户数据的安全性。
-
-###### 公告/新闻管理： 实时发布社区政策与新闻资讯，确保长辈及时获取重要通知。
-
-##### 社区交流与互动
-###### 发布贴子/交流： 用户可分享生活动态或发起求助，增强邻里间的互动与情感联系。
-
-###### 留言板/回复： 管理员与用户通过留言系统高效沟通，及时反馈并解决生活诉求。
-
-###### 敏感词/模块管理： 自动过滤违规言论，灵活配置系统板块，维护健康绿色社区环境。
-
-##### 志愿服务与积分体系
-###### 发布服务内容： 居民在线提交生活协助申请，系统精准对接需求，实现邻里互助。
-
-###### 我的接单/看板： 志愿者实时查看并承接任务，通过看板监控服务进度与完成情况。
-
-###### 积分兑换/记录： 记录志愿服务时长，支持在线兑换精选物品，激励志愿者服务热情。
-
-##### 康养教育与资源服务
-###### 视频课程： 提供养生知识、智能设备使用等教学视频，丰富老年人精神生活。
-
-###### 帮助服务信息： 汇总各类适老化服务指引，为长辈提供一站式的办事与咨询支持。
-
-###### 首页图片管理： 动态更新系统视觉内容，展示社区风采，提升平台使用愉悦感。
+本项目是一套面向社区互助养老场景的数字化服务平台，采用前后端分离架构，覆盖**管理员、志愿者、老年用户**三类核心角色。系统围绕"老人发布需求→志愿者接单服务→积分记录→积分兑换"的核心互助流程设计，同时集成社区交流、视频课程、公告资讯等模块，构建"以服务换积分、以积分换服务"的社区互助养老生态。
 
 #### 安装环境
+️**注意**：请确保您的开发环境已安装以下依赖。
 
 JAVA 环境 
 
@@ -47,24 +19,151 @@ Node.js环境 [https://nodejs.org/en/] 选择14.17
 
 Yarn 打开cmd， 输入npm install -g yarn !!!必须安装完毕nodejs
 
-Mysql 数据库 [https://blog.csdn.net/qq_40303031/article/details/88935262] 一定要把账户和密码记住
+Mysql 数据库 一定要把账户和密码记住
 
 redis
 
-Idea 编译器 [https://blog.csdn.net/weixin_44505194/article/details/104452880]
+Idea 编译器
 
-WebStorm OR VScode 编译器 [https://www.jianshu.com/p/d63b5bae9dff]
+WebStorm OR VScode 编译器
 
 #### 采用技术及功能
 
 后端：SpringBoot、MybatisPlus、MySQL、Redis、
 前端：Vue、Apex、Antd、Axios
 
-平台前端：vue(框架) + vuex(全局缓存) + rue-router(路由) + axios(请求插件) + apex(图表)  + antd-ui(ui组件)
+平台前端：vue(框架) + vuex(全局缓存) + rue-router(路由) + axios(请求插件) + apex(图表)  + antd-ui(ui组件) + 百度地图 API
 
 平台后台：springboot(框架) + redis(缓存中间件) + shiro(权限中间件) + mybatisplus(orm) + restful风格接口 + mysql(数据库)
 
 开发环境：windows10 or windows7 ， vscode or webstorm ， idea + lambok
+
+---
+
+## 核心特性
+
+- **社区互助交流**：内置社区论坛模块，老年用户可发布帖子、参与讨论、分享生活经验，志愿者也可参与互动，构建温暖的社区互助氛围。
+- **视频课程学习**：管理员可上架视频课程（如健康养生、智能手机使用、书法绘画等），老年用户在线观看学习，志愿者也可通过积分兑换专属课程。
+- **敏感词与内容审核**：管理员可配置敏感词库，社区帖子与回复自动过滤违规内容，保障社区交流环境健康有序。
+- **灵活的服务发布机制**：老年用户可发布所需服务内容（如代购代办、陪伴聊天、家政协助等），志愿者在接单大厅查看并抢单，管理员也可手动派单。
+- **完整的积分兑换闭环**：管理员可上架积分兑换商品，志愿者通过服务累积积分后在线兑换，系统记录完整兑换流水，公开透明。
+- **消息互动与通知**：支持用户对帖子进行消息回复，系统自动推送接单通知、兑换结果、公告等信息。
+---
+
+## 适用场景
+
+- 社区互助养老服务平台
+- "时间银行"志愿服务系统
+- 街道/社区为老服务中心
+- 老年大学在线学习平台
+- 社区邻里互助小程序
+- 志愿者积分激励管理系统
+---
+
+## 功能模块概览
+
+## 管理员端
+
+管理员为社区运营中枢，负责全局管控与内容管理：
+
+### 用户与权限
+
+- **用户管理**：管理注册用户（老年用户/志愿者），包括用户ID、姓名、手机号、角色、注册时间、账户状态，支持用户信息查询、账户冻结/解冻、角色分配。
+- **员工管理**：管理平台内部员工（社区工作人员/客服人员），包括员工账号、姓名、岗位、权限配置，支持员工增删改查。
+
+### 内容与社区管理
+
+- **公告管理**：发布与管理社区公告，包括公告标题、内容、类型（活动通知/政策宣讲/服务公告）、发布时间、置顶状态、可见范围，支持公告编辑与删除。
+- **社区新闻**：发布社区新闻资讯，包括新闻标题、内容、封面图、分类、发布时间，支持新闻增删改查与排序。
+- **社区交流**：管理社区帖子分类，包括分类名称（生活分享/求助互助/活动反馈等）、排序、状态，支持分类增删改查；查看全平台帖子，支持帖子审核、置顶、删除。
+- **留言板信息**：查看用户提交的留言板留言，包括留言人、留言内容、留言时间，支持留言回复与删除。
+- **敏感词管理**：配置社区敏感词库，包括敏感词内容、替换方式（屏蔽/替换为\*\*\*）、添加时间，支持敏感词增删改查，社区帖子与回复自动过滤。
+- **消息回复内容管理**：管理常用回复模板与快捷回复内容，包括回复标题、回复内容、适用场景，支持模板增删改查，提升客服回复效率。
+- **我的贴子**：管理员可查看自己发布的帖子与管理记录。
+
+### 模块与内容配置
+
+- **模块管理**：管理系统功能模块的显示与隐藏，包括模块名称、模块标识、排序、启用状态，支持灵活配置小程序端展示的功能模块。
+- **首页图片管理**：管理小程序首页轮播图/Banner，包括图片上传、跳转链接、排序、启用状态，支持轮播图增删改查。
+- **帮助服务信息**：管理帮助中心内容，包括帮助标题、帮助内容、分类、排序，支持帮助文档增删改查，方便用户查阅使用指南。
+
+### 积分与兑换
+
+- **积分物品上架**：管理积分兑换商品，包括商品名称、商品图片、所需积分、库存、兑换规则、上下架状态，支持商品增删改查与库存管理。
+- **志愿者积分兑换**：查看志愿者积分兑换申请记录，包括兑换人、兑换商品、消耗积分、申请时间、兑换状态（待发货/已完成），支持兑换审核与发货操作。
+- **兑换记录**：综合查看所有兑换记录，包括兑换人、兑换商品、消耗积分、兑换时间、兑换状态，支持兑换数据统计与导出。
+
+### 课程与数据
+
+- **视频课程**：管理视频课程资源，包括课程名称、课程分类（健康养生/智能手机/书法绘画/防诈骗等）、课程封面、视频文件、课程简介、观看权限（公开/积分兑换）、上架状态，支持课程增删改查与观看统计。
+- **数据统计**：综合数据看板，展示核心运营指标（注册用户数/活跃志愿者数/今日服务单数/累计积分发放/兑换商品数/课程观看量），支持用户增长趋势、志愿者服务排行、积分发放与兑换分析、课程热度统计等多维度图表展示，支持报表导出。
+
+## 志愿者小程序端
+
+志愿者通过小程序参与社区服务、累积积分：
+
+### 账户与个人
+
+- **账户注册/登录**：支持手机号+验证码注册与登录，支持微信授权一键登录，注册时选择志愿者角色，支持找回密码。
+- **个人信息**：查看与编辑个人基本信息，包括姓名、手机号、头像、性别、技能标签（陪伴聊天/家政协助/代购代办/医疗陪护等），支持信息修改。
+- **密码修改**：修改登录密码，支持原密码验证。
+
+### 服务与积分
+
+- **服务看板**：首页展示志愿者工作台，包括待接单数、累计服务时长、当前积分余额、本月服务统计、快捷接单入口。
+- **我的接单**：查看自己接取的服务订单列表，包括待服务/服务中/已完成订单，支持接单操作、服务状态更新（已接单→服务中→已完成）、服务反馈填写（服务描述、服务照片）、服务时长记录。
+- **积分物品兑换**：浏览积分商城，查看可兑换商品与所需积分，支持在线提交兑换申请，查看兑换进度。
+- **我的兑换记录**：查看个人历史兑换记录，包括兑换商品、消耗积分、兑换状态、兑换时间，支持兑换详情查看。
+
+### 通知与互动
+
+- **消息通知**：接收新服务通知、接单成功通知、兑换结果通知、公告推送等，支持消息列表查看与已读标记。
+
+## 老年用户小程序端
+
+老年用户通过小程序发布需求、参与社区互动、学习课程：
+
+### 账户与个人
+
+- **小程序账户注册登录**：支持手机号+验证码注册与登录，支持微信授权一键登录，支持找回密码。界面采用适老化设计（大字体、高对比度、简化操作流程）。
+- **个人信息修改**：查看与编辑个人基本信息，包括姓名、手机号、头像、性别、住址，支持信息修改。
+
+### 服务与互动
+
+- **发布服务内容**：发布所需服务需求，选择服务类型（代购代办/陪伴聊天/家政协助/医疗陪护/其他）、填写服务描述、期望服务时间、服务地址，提交后等待志愿者接单，支持服务需求列表查看与状态追踪。
+- **社区交流**：浏览社区帖子，支持发帖（生活分享/求助互助/活动反馈）、查看帖子列表、点赞、评论回复，与其他用户/志愿者互动。
+- **我的贴子**：查看自己发布的帖子列表，包括帖子内容、发布时间、回复数、点赞数，支持帖子编辑与删除。
+- **消息内容回复**：查看他人对自己帖子的回复，支持在线回复互动，形成社区交流闭环。
+- **视频课程观看**：浏览视频课程列表，按分类筛选课程，在线观看学习，支持课程收藏与观看进度记录。
+
+### 通知
+
+- **消息通知**：接收服务接单通知、服务完成通知、帖子回复通知、公告推送等，支持消息列表查看与已读标记。
+
+---
+
+## 项目结构
+
+```text
+pharmacy-dispensing-system/
+├── backend/            # 后端 API 服务
+│   ├── src/
+│   │   ├── controllers/  # 控制器
+│   │   ├── models/       # 数据模型
+│   │   ├── routes/       # 路由
+│   │   └── services/     # 业务逻辑
+│   └── package.json
+├── frontend/           # 前端 Web 应用
+│   ├── src/
+│   │   ├── views/      # 页面视图
+│   │   ├── components/ # 公共组件
+│   │   └── store/      # 状态管理
+│   └── package.json
+├── docs/               # 项目文档与 API 接口说明
+├── LICENSE
+└── README.md
+```
+---
 
 
 #### 前台启动方式
@@ -74,30 +173,30 @@ WebStorm OR VScode 编译器 [https://www.jianshu.com/p/d63b5bae9dff]
 #### 默认后台账户密码
 [管理员]
 admin
-1234qwer
+123456
+
+[用户]
+fank
+123456
 
 #### 项目截图
-暂无
+|  |  |
+|---------------------|---------------------|
+| ![](./assets/image%20(1).png) | ![](./assets/image%20(2).png) |
+| ![](./assets/image%20(3).png) | ![](./assets/image%20(4).png) |
+| ![](./assets/image%20(5).png) | ![](./assets/image%20(6).png) |
+| ![](./assets/image%20(7).png) | ![](./assets/image%20(8).png) |
+| ![](./assets/image%20(9).png) | ![](./assets/image%20(10).png) |
+| ![](./assets/image%20(11).png) | ![](./assets/image%20(12).png) |
 
 |  |  |
 |---------------------|---------------------|
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/32db93e0-558b-45c8-b3a9-31e5a6d40a3e.png) | ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/5236423b-070d-4e47-9a33-c45e550afcca.png) |
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/4d44290b-38ef-4196-abe1-90403bb2c57f.png) | ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/876e7e98-17ec-4d1c-8638-c403a5d48b35.png) |
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/f102016b-9a6d-4585-89e4-3a1b4523cc16.png) | ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/169a5945-7eda-4b79-8768-572c0896403b.png) |
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/e4dfc82c-ccb1-440f-bffe-e9e3503bdbce.png) | ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/97ec0bb4-1db9-481e-991d-4229727acb63.png) |
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/c0d1d454-90a6-4dae-b47d-d5cac51e40a9.png) | ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/71e7aed3-9440-48c6-95a2-53644bfb57fd.png) |
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/a4a863a0-a285-44ad-ab41-cb620367340b.png) | ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/68baf897-b469-4490-89fb-4f0392e7264a.png) |
-
-|  |  |
-|---------------------|---------------------|
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/e8e00350-9821-4893-b139-4c85414c2bb6.png) | ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/43254711-2d42-43f7-813e-90089239715d.png) |
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/de3dc67f-6bbc-47bc-b4b6-4025603f41f0.png) | ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/331e115e-a5f0-401c-b423-04d2b8cdf2d8.png) |
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/d975f825-2f8e-4faf-8e12-9bd139a19930.png) | ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/194b0b90-863b-4af4-a6ab-150f0d2e4270.png) |
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/c6be1a63-061d-4305-b5c0-53ede07650ed.png) | ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/4d5f39ce-6b0c-4c0c-8892-5b4e14f94747.png) |
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/bff79178-417a-4d1a-8d72-08fb2e97ed91.png) | ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/e932fe65-ffd8-424e-8c86-804a787057bf.png) |
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/79752991-6d12-4cea-b2db-db5b138aa6f4.png) |  |
-
-| ![](https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/work/936e9baf53eb9a217af4f89c616dc19.png) |
+| ![](./assets/app_image%20(1).png) | ![](./assets/app_image%20(2).png) |
+| ![](./assets/app_image%20(3).png) | ![](./assets/app_image%20(4).png) |
+| ![](./assets/app_image%20(5).png) | ![](./assets/app_image%20(6).png) |
+| ![](./assets/app_image%20(7).png) | ![](./assets/app_image%20(8).png) |
+| ![](./assets/app_image%20(9).png) | ![](./assets/app_image%20(10).png) |
+| ![](./assets/app_image%20(11).png) |
 
 #### 演示视频
 
@@ -115,7 +214,10 @@ WeChat: `Storm_Berserker`
 
 > 项目部署调试不好包退！功能逻辑没讲明白包退！
 
+<div align=center><img align="center" src="./assets/product_word.png" alt="fankekeke" /></div>
+
 #### 其它资源
+[2026年-答辩顺利通过-客户评价🀄](https://berserker287.github.io/2026/06/29/2026%E5%B9%B4%E7%AD%94%E8%BE%A9%E9%A1%BA%E5%88%A9%E9%80%9A%E8%BF%87/)
 
 [2025年-答辩顺利通过-客户评价🍜](https://berserker287.github.io/2025/06/18/2025%E5%B9%B4%E7%AD%94%E8%BE%A9%E9%A1%BA%E5%88%A9%E9%80%9A%E8%BF%87/)
 
@@ -139,4 +241,8 @@ WeChat: `Storm_Berserker`
 
 More info: [悲伤的橘子树](https://berserker287.github.io/)
 
-<p><img align="center" src="https://fank-bucket-oss.oss-cn-beijing.aliyuncs.com/img/%E5%90%88%E4%BD%9C%E7%89%A9%E6%96%99%E6%A0%B7%E5%BC%8F%20(3).png" alt="fankekeke" /></p>
+<div align="center"><img align="center" src="./assets/chat_qr_code.png" alt="fankekeke" width=250 /></div>
+
+<p><img align="center" src="./assets/wechat_group.png" alt="fankekeke" /></p>
+
+**感谢查看**
